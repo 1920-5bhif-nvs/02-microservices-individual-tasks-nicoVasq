@@ -10,12 +10,11 @@ import static org.hamcrest.CoreMatchers.is;
 public class BarbershopResourceTest {
 
     @Test
-    public void testBarbershopNameEndpoint() {
+    public void testBarbershopConnection() {
         given()
-          .when().get("/api")
+          .when().get("/barbershop")
           .then()
-             .statusCode(200)
-             .body(is("Klipp"));
+             .statusCode(200);
     }
 
 }
