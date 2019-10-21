@@ -2,8 +2,8 @@ package at.htl;
 
 public class Barbershop {
 
+    private Long id;
     private String name;
-    private String city;
 
 
     public String getName() {
@@ -14,11 +14,11 @@ public class Barbershop {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public Long getId() {
+        return id;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setId(Long id) {
+        this.id = id;
     }
 }

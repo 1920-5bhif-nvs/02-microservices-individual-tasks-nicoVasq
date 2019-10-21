@@ -11,30 +11,29 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
-@Path("shop")
-public class BarbershopResource {
+@Path("emp")
+public class EmployeeResource {
 
     @Inject
     @RestClient
-    BarbershopService service;
+    EmployeeService employeeService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Retry(maxRetries = 5)
-    @Counted(name = "barbershop_called", description = "Amount of requests")
+    @Retry(maxRetries = 2)
+    @Counted(name = "employee_called", description = "Amount of requests")
     @Timed(name = "timer", description = "How long this task takes to perform", unit = MetricUnits.MILLISECONDS)
     @Fallback(fallbackMethod = "fallback")
-    public Response get(){
-         return  Response.ok().entity(service.getBarbershop()).build();
+    public Response getAll(){
+        return Response.ok().entity(employeeService.getEmployee()).build();
     }
 
     public Response fallback(){
         return Response.ok().entity(Json.createObjectBuilder().add("Message", "This is the fallback response").build()).build();
     }
+
 }

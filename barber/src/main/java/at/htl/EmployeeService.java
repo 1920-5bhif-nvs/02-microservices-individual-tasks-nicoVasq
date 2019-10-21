@@ -8,12 +8,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("barbershop")
+@Path("employee")
 @RegisterRestClient
-public interface BarbershopService {
+public interface EmployeeService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    List<Barbershop> getBarbershop();
+    List<Employee> getEmployee();
 }
-
